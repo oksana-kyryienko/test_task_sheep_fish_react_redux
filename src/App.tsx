@@ -1,23 +1,22 @@
 import './App.css';
-import { userSlice } from './store/reducers/UserSlice';
 import { useAppDispatch, useAppSelector } from './hooks/redux';
 import { useEffect } from 'react';
-import { fetchUsers } from './store/reducers/ActionCreators';
-
+import * as usersActions from './store/reducers/UserSlice';
+import { users } from './store/reducers/UserSlice';
 
 function App() {
 
-  const dispatch = useAppDispatch()
-  const { users, isLoading, error } = useAppSelector(state => state.userReducer)
+  const dispatch = useAppDispatch();
+  const allUsers = useAppSelector(users);
 
   useEffect(() => {
-    dispatch(fetchUsers())
+    dispatch(usersActions.init());
 
-  }, [])
+  }, [dispatch])
   return (
     <div>
-      {JSON.stringify(users)}
-  
+      {JSON.stringify(allUsers)}
+
     </div>
   );
 }

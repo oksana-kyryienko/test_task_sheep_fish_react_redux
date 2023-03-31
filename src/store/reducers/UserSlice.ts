@@ -1,38 +1,48 @@
-import { IUser } from './../../types/User';
-import { createSlice } from '@reduxjs/toolkit';
-import type {PayloadAction} from '@reduxjs/toolkit';
+import { IUser } from "./../../types/User";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchUsers } from "./ActionCreators";
+import { RootState } from "../store";
 
 interface UserState {
   users: IUser[];
-  isLoading: boolean;
+  loading: boolean;
   error: string;
 }
 
 const initialState: UserState = {
   users: [],
-  isLoading: false,
-  error: '',
-}
+  loading: false,
+  error: "",
+};
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: "users",
   initialState,
   reducers: {
-    usersFetching(state) {
-      state.isLoading = true;
+  },
+  extraReducers: (builder) => {
+    builder.addCase(init.pending, (state) => {
+      state.loading = true;
+    });
 
-    },
-    usersFetchingSuccess(state, action: PayloadAction<IUser[]>) {
-      state.isLoading = false;
-      state.error = '';
+    builder.addCase(init.fulfilled, (state, action) => {
       state.users = action.payload;
+      state.loading = false;
+    });
 
-    },
-    usersFetchingError(state, action: PayloadAction<string>) {
-      state.isLoading = false;
-      state.error = action.payload;
-    }
-  }
-})
+    builder.addCase(init.rejected, (state) => {
+      state.loading = false;
+      state.error = "Error loading";
+    });
+  },
+});
+
+export const init = createAsyncThunk("users/get", () => {
+  return fetchUsers();
+});
+
+export const users = (state: RootState) => state.userReducer.users;
+export const loading = (state: RootState) => state.userReducer.loading;
+export const error = (state: RootState) => state.userReducer.error;
 
 export default userSlice.reducer;
