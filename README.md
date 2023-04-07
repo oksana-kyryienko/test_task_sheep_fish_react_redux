@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+[DEMO LINK](https://oksana-kyryienko/test_task_sheep_fish_react_redu)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Technologies that I used
+Typescript
+React JS
+Router
+CSS
+Redux toolkit
+Redux thunk
+Formik
+Yup
 
-## Available Scripts
+Develop a simple web application page that allows users to browse and filter product listings from a database. Use React and Redux to create an interface and manage application state. Interact with the API to retrieve and store data from the database.
+Create an application consisting of several components: a header, a search field, a list of products, and a form for adding a new product.
+Use React Router to create application routes that allow users to navigate between pages.
+Use Redux to manage application state. Create reducers and actions that allow you to add, remove, and update products.
+Create a product list component that receives data from the Redux store and displays it as a table with columns: ID, name, description, price, photo, rating, stock, category. Add the ability to sort and filter the product by each column.
+Add a search box that allows users to search for products by name or category. The product list component should update automatically when the user enters a query in the search field.
+Create a form to add a new product. Use Formik and Yup to validate your input. The form must contain the following fields: Name, Author, Year of publication, Rating.
+Add the ability to remove an item from the list and from the Redux store.
 
-In the project directory, you can run:
+Setup
+To install the dependencies:
 
-### `npm start`
+# yarn
+yarn install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# npm
+npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
