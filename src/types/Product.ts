@@ -11,3 +11,4 @@ export interface IProduct {
   };
   [key: string]: unknown; // індексний підпис
 }
+

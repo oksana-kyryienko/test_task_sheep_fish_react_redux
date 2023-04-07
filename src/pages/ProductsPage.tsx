@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import * as productsActions from '../store/reducers/ProductSlice';
 import { deleteProduct, products } from '../store/reducers/ProductSlice';
-import Sorter from './Sorter';
-import ProductItem from './ProductItem';
+import Sorter from '../components/Sorter';
+import ProductItem from '../components/ProductItem';
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
@@ -19,19 +18,14 @@ const ProductList = () => {
     dispatch(productsActions.init());
   }, [dispatch]);
 
-  const handleSearch = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    setSearchTerm: React.Dispatch<React.SetStateAction<string>>
-  ) => {
+  const handleTitleSearch: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  const handleTitleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleSearch(e, setSearchTerm);
-  };
-
-  const handleCategorySearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleSearch(e, setSearchCategory);
+  const handleCategorySearch: React.ChangeEventHandler<HTMLInputElement> = (
+    e
+  ) => {
+    setSearchCategory(e.target.value);
   };
 
   const getValueByPath = (obj: any, path: string) => {
@@ -61,10 +55,13 @@ const ProductList = () => {
     return compareValues(valueA, valueB, sortOrder);
   });
 
-  const filteredProducts = sortedProducts.filter((product) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredProducts = sortedProducts.filter(
+    (product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      product.category.toLowerCase().includes(searchCategory.toLowerCase())
   );
 
+ 
   if (sortKey) {
     filteredProducts.sort((a, b) => {
       const valueA = a[sortKey] as string | number;

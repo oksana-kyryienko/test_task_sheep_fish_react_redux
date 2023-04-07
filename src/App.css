@@ -62,3 +62,19 @@ background-color: #f2f2f2;
   color: red;
 }
 
+.createbtn {
+  background-color: red;
+  color: white;
+  outline: none;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.link {
+  padding: 30px;
+  text-decoration: none;
+  color: teal;
+  text-transform: uppercase;
+  font-weight: bold;
+}
