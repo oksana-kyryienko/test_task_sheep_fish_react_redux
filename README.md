@@ -1,4 +1,4 @@
-[DEMO LINK](https://oksana-kyryienko/test_task_sheep_fish_react_redu)
+[DEMO LINK](https://oksana-kyryienko/test_task_sheep_fish_react_redux)
 
 Technologies that I used
 Typescript
