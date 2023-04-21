@@ -15,7 +15,6 @@ type Props = {
   addProduct: (product: IProduct) => AddProductAction;
 };
 
-
 const validationSchema = Yup.object({
   image: Yup.string().required('Введіть посилання на зображення'),
   category: Yup.string().required('Введіть категорію'),
@@ -41,15 +40,17 @@ const initialValues: IProduct = {
 };
 
 const AddProductForm: React.FC<Props> = ({ addProduct }) => {
-
   const [modal, setModal] = useState(false);
   const handleSubmit = (values: IProduct) => {
     addProduct(values);
+    setModal(false);
   };
 
   return (
     <>
-      <button className="createbtn" onClick={() => setModal(true)}>Create new product</button>
+      <button className="createbtn" onClick={() => setModal(true)}>
+        Create new product
+      </button>
       <MyModal visible={modal} setVisible={setModal}>
         <Formik
           initialValues={initialValues}
@@ -70,7 +71,7 @@ const AddProductForm: React.FC<Props> = ({ addProduct }) => {
                 <label htmlFor="author">Category</label>
                 <Field id="category" name="category" type="text" />
                 {formik.touched.category && formik.errors.category ? (
-                  <div>{formik.errors.category }</div>
+                  <div>{formik.errors.category}</div>
                 ) : null}
               </div>
 
@@ -78,7 +79,7 @@ const AddProductForm: React.FC<Props> = ({ addProduct }) => {
                 <label htmlFor="title">Title</label>
                 <Field id="title" name="title" type="text" />
                 {formik.touched.title && formik.errors.title ? (
-                  <div>{formik.errors.title  }</div>
+                  <div>{formik.errors.title}</div>
                 ) : null}
               </div>
 
@@ -94,11 +95,9 @@ const AddProductForm: React.FC<Props> = ({ addProduct }) => {
             </Form>
           )}
         </Formik>
-
       </MyModal>
     </>
   );
-  
 };
 
 export default connect(null, { addProduct })(AddProductForm);

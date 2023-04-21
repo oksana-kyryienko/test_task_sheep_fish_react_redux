@@ -4,6 +4,7 @@ import * as productsActions from '../store/reducers/ProductSlice';
 import { deleteProduct, products } from '../store/reducers/ProductSlice';
 import Sorter from '../components/Sorter';
 import ProductItem from '../components/ProductItem';
+import AddProduct from '../components/AddProduct';
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
@@ -95,6 +96,7 @@ const ProductList = () => {
 
   return (
     <div className="container">
+      <AddProduct />
       <table className="table">
         <thead>
           <tr>
